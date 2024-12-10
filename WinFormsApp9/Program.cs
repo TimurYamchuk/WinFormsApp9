@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace AuthorsAndBooks
+namespace TicTacToeGame
 {
     internal static class Program
     {
@@ -10,7 +10,12 @@ namespace AuthorsAndBooks
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            var view = new Form1();
+            var model = new GameModel();
+            var presenter = new GamePresenter(view, model);
+
+            Application.Run(view);
         }
     }
 }
